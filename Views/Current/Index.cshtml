@@ -1,0 +1,33 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Classes
+@model List<Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Current ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>City</th>
+        <th>Mail</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Detail</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.CurrentID</td>
+                    <td>@x.CurrentName</td>
+                    <td>@x.CurrentSurname</td>
+                    <td>@x.CurrentCity</td>
+                    <td>@x.CurrentMail</td>
+                    <td><a href="/Current/DeleteCurrent/@x.CurrentID" class="btn btn-danger">Delete</a></td>
+                    <td><a href="/Current/GetCurrent/@x.CurrentID" class="btn btn-warning">Update</a></td>
+                    <td><a href="/Current/CustomerSales/@x.CurrentID" class="btn btn-default" style="background-color:cornflowerblue">Sales History</a></td>
+                </tr>
+            }
+</table>
+<a href="/Current/NewCurrent/" class="btn btn-info">Add New Current</a>

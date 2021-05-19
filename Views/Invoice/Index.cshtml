@@ -1,0 +1,40 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Serial No</th>
+        <th>Squence No</th>
+        <th>Tax Office</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Consigner</th>
+        <th>Recipient</th> 
+        <th>TotalPrice</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.InvoiceID</td>
+            <td>@k.InvoiceSerialNo</td>
+            <td>@k.InvoiceSequenceNo</td>
+            <td>@k.TaxOffice</td>
+            <td>@k.Date</td>
+            <td>@k.Time</td>
+            <td>@k.Consigner</td>
+            <td>@k.Recipient</td>
+            <td>@k.TotalPrice</td>
+            <td><a href="/Invoice/GetInvoice/@k.InvoiceID" class="btn btn-success">Update</a></td>
+            <td><a href="/Invoice/DetailInvoice/@k.InvoiceID" class="btn btn-success" style="background-color:cornflowerblue">Detail</a></td>
+        </tr>
+    }
+</table>
+<a href="/Invoice/AddInvoice" class="btn btn-info">Add Invoice</a>
+

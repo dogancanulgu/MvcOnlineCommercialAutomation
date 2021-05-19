@@ -1,0 +1,32 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Classes
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Department</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Detail</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>
+                @k.DepartmentID
+            </td>
+            <td>
+                @k.DepartmentName
+            </td>
+            <td><a href="/Department/DeleteDepartment/@k.DepartmentID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Department/GetDepartment/@k.DepartmentID" class="btn btn-success">Update</a></td>
+            <td><a href="/Department/DetailDepartment/@k.DepartmentID" class="btn btn-success" style="background-color:cornflowerblue">Detail</a></td>
+        </tr>
+    }
+</table>
+<a href="/Department/AddDepartment" class="btn btn-info">Add Department</a>
+

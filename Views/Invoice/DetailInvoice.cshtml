@@ -1,0 +1,30 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "DetailInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Detail Invoice Page</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Item ID</th>
+        <th>Note</th>
+        <th>Amount</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.InvoiceItemID</td>
+            <td>@x.Note</td>
+            <td>@x.Amount</td>
+            <td>@x.UnitPrice</td>
+            <td>@x.TotalPrice</td> 
+       </tr>
+    }
+</table>
+<a href="/Invoice/NewItem/" class="btn btn-default" style="background-color:darksalmon">Add New Invoice Item</a>
